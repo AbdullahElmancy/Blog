@@ -3,9 +3,8 @@ import style from './catagoryList.module.css'
 import Link from 'next/link'
 import  Image  from 'next/image';
 import { Icategory } from './../../interfaces/category';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 const getDate = async()=>{
-  const res = await fetch(`${process.env.BASE_URL}/api/categories`)
+  const res = await fetch("http://localhost:3000/api/categories")
   if(!res.ok){
     throw new Error("faild to get date")
   }
