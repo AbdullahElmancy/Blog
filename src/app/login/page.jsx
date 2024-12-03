@@ -1,11 +1,22 @@
 "use client"
 import { signIn, useSession } from 'next-auth/react';
 import style from './login.module.css'
-import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 const LoginPage = () => {
     const {data,status} = useSession()
+    console.log(data,status);
     
+    const router = useRouter()
+    if (status === "loading") {
+        return <div className={style.loading}>
+            <h1 className={style.titleLoding}>this page loadin</h1>
+            <p className={style.ploadin}> please wait for loading</p>
+        </div>
+    }
     
+    if (status === "authenticated") {
+        router.push("/home")
+    }
     return ( <>
     <div className={style.container}>
         <div className={style.wrapper}>
