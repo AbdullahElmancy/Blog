@@ -3,9 +3,24 @@ import React from 'react'
 import Image from 'next/image';
 import style from './write.module.css'
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const WritePage = () => {
     const [open,setOpen] = useState(false)
+    const {status} = useSession()
+    
+    const router = useRouter()
+    if (status === "loading") {
+        return <div className={style.loading}>
+            <h1 className={style.titleLoding}>this page loadin</h1>
+            <p className={style.ploadin}> please wait for loading</p>
+        </div>
+    }
+    
+    if (status === "authenticated") {
+        router.push("/home")
+    }
   return (
     <div className={style.container}>
         <input type={`text`} id={`title`} name={`title`} className={style.title} placeholder='Title'/>

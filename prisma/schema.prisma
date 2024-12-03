@@ -16,7 +16,7 @@ datasource db {
 model User {
   id            String          @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  email         String?         @unique
+  email         String          @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
@@ -26,6 +26,10 @@ model User {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  Post Post[]
+
+  Comment Comment[]
 }
  
 model Account {
@@ -84,4 +88,39 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@unique([userId, credentialID])
+}
+
+
+model Category {
+  id String @id @default(cuid()) @map("_id")
+  slug String @unique
+  title String
+  img String?
+  Posts Post[]
+}
+model Post {
+  id String @id @default(cuid()) @map("_id")
+  slug String @unique
+  title String
+  desc String
+  img String?
+  views Int @default(0)
+  createdAt DateTime @default(now())
+  catSlug String
+  cat Category @relation(fields: [catSlug],references: [slug])
+  userEmail String
+  user User @relation(fields: [userEmail],references: [email])
+
+  Comment Comment[]
+}
+
+model Comment {
+  id String @id @default(cuid()) @map("_id")
+  desc String
+  createdAt DateTime @default(now())
+  userEmail String
+  user User @relation(fields: [userEmail],references: [email])
+  postSlug String
+  post Post @relation(fields: [postSlug],references: [slug])
+
 }
