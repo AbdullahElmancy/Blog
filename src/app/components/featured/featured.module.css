@@ -1,0 +1,85 @@
+.container{
+    margin-top: 60px;
+}
+.title{
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.post{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.containerImage{
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+.image{
+    object-fit: cover;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.containertext{
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.postTitle{
+    font-size: 40px;
+}
+
+.postDesc{
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--softTextColor);
+}
+
+.button {
+    width: max-content;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+@media screen and (max-width:1280px) {
+    .title{
+        font-size: 4rem;
+    }
+}
+@media screen and (max-width:1024px) {
+    .title{
+        font-size: 3rem;
+    }
+    .postTitle{
+        font-size: 2rem;
+    }
+    .containerImage{
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .title{
+        font-size: 2rem;
+    }
+    .postTitle{
+        font-size: 1.5rem;
+    }
+    .postDesc{
+        font-size: 1rem;
+    }
+}

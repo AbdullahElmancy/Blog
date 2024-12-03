@@ -1,0 +1,98 @@
+.infoContainer{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.textContainer{
+    flex: 1;
+}
+
+.imageContainer{
+    flex: 1;
+    height: 350px;
+    position: relative;
+}
+
+.userTextContainer{
+    width: 50;
+    height: 50;
+    position: relative;
+}
+.image{
+    object-fit: cover;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-style:outset;
+}
+.textTitle{
+    font-size: 64px;
+    margin-bottom: 50px;
+}
+.userimage{
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userTextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--softTextColor);
+}
+.userName{
+    font-size: 20px;
+    font-weight: 500;
+}
+.content{
+    display: flex;
+    gap: 50px;
+    
+}
+.post{
+    flex: 5;
+    margin-top: 60px;
+}
+.pdesc{
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:1536px) {
+    .textTitle{
+        font-size: 54px;
+    }
+}
+@media screen and (max-width:1280px) {
+    .textTitle{
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .imageContainer{
+        display: none;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .textTitle{
+        font-size: 36px;
+    }
+    .pdesc{
+        font-size: 18px;
+    }
+}

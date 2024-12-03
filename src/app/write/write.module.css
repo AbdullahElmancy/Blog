@@ -1,0 +1,79 @@
+.editor{
+    display: flex;
+    gap: 20;
+    height: 500px;
+    position: relative;
+}
+
+.button,.addButton{
+    cursor: pointer;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    background-color:transparent;
+    width: 36px;
+    height: 36px;
+    border:1px solid var(--textColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addButton{
+    border-color:#1a8917;
+}
+
+.add{
+    display: flex;
+    position: absolute;
+    z-index: 999999;
+    background-color:var(--bg);
+    gap: 20px;
+    width: 100%;
+    left: 50px;
+}
+.textarea::placeholder{
+    color:#b3b3b1 !important;
+}
+.textarea{
+    appearance: none;
+    margin-top: 4rem;
+    width: 100%;
+    font-size: 28px !important;
+    resize: none;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    color: var(--textColor);
+}
+
+.title{
+    padding: 50px;
+    font-size: 64px;
+    width: 100%;
+    overflow: hidden;
+    border:none;
+    outline: none;
+    background-color:transparent;
+    color: var(--textColor);
+
+}
+
+.title::placeholder{
+    color: #b3b3b1;
+}
+.publish{
+    padding: 10px 20px;
+    border:none;
+    background-color:#1a8917;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-top: 20px;
+}
