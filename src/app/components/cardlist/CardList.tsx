@@ -2,21 +2,32 @@ import React from 'react'
 import style from './carlist.module.css'
 import Pageination from '../pagination/Pageination'
 import Card from '../card/Card'
-import post from '@/app/services/arrImage'
-import mergeSort, { objecta } from '@/app/utilities/mergesort'
+import { Iposts } from '@/app/interfaces/postsAr'
 
-const CardList = () => {
-  let populerPost :objecta[] = mergeSort(post).reverse().slice(0,4)  
+const getDate = async(page:number,cat:string)=>{
+  const res = await fetch(`http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`)
+  if(!res.ok){
+    throw new Error("faild to get date")
+  }
+  return res.json()
+}
+const CardList = async({page,cat}:{page:number;cat:string}) => {
+  
+  const {posts,count}:Iposts = await getDate(page,cat)
+  const countPost = 4;
+  const hasPerv = countPost * (page-1) >0;
+  const hasNext = countPost * (page-1) + countPost < count ;
+  
 
   return (
     <div className={style.container}>
       <h1 className={style.title}>Resnt Post</h1>
       <div className={style.posts}>
         {
-          populerPost.map(post=><Card key={post.id} img={post.img} category={post.category}/>)
+          posts.map(post=><Card key={post.id} postDetails={post}/>)
         }
       </div>
-      <Pageination/>
+      <Pageination page={page} hasPerv={hasPerv} hasNext={hasNext}/>
     </div>
   )
 }

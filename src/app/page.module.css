@@ -2,3 +2,40 @@
   display: flex;
   gap: 50px;
 }
+
+.notFound{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 50px;
+  height: calc(100vh - 150px);
+  width: 100%;
+}
+
+.notFoundTitle{
+  color: var(--colorText);
+  font-size: 72px;
+}
+.LinkNot{
+  margin-top: 20px;
+  padding: 16px 20px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.LinkNot:hover{
+  background-color:rgb(108, 17, 17);
+}
+
+@media screen and (max-width:768px) {
+  .notFoundTitle{
+    font-size: 48px;
+  }
+}

@@ -10,3 +10,6 @@
     color: white;
     cursor: pointer;
 }
+.button:disabled{
+    visibility: hidden;
+}

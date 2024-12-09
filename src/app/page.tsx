@@ -5,14 +5,15 @@ import CardList from './components/cardlist/CardList';
 import Menu from './components/menu/Menu';
 
 
-const HOME = () :JSX.Element => {
-  
+const HOME = async({searchParams}:{searchParams:{page:string}}) => {
+  const { page } = await searchParams
+  const pageh  =  parseInt(page) || 1
   return ( <>
   <div className={style.container}>
   <Featured/>
   <CatagoryList/>
   <div className={style.content}>
-    <CardList/>
+    <CardList page={pageh} cat={""}/>
     <Menu />
   </div>
   </div>

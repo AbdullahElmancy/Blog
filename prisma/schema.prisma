@@ -100,7 +100,7 @@ model Category {
 }
 model Post {
   id String @id @default(cuid()) @map("_id")
-  slug String @unique
+  slug String  
   title String
   desc String
   img String?
@@ -120,7 +120,7 @@ model Comment {
   createdAt DateTime @default(now())
   userEmail String
   user User @relation(fields: [userEmail],references: [email])
-  postSlug String
-  post Post @relation(fields: [postSlug],references: [slug])
+  postId String
+  post Post @relation(fields: [postId],references: [id])
 
 }

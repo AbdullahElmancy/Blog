@@ -33,7 +33,7 @@ const post = [
     },
     {
         id:"6",
-        img:"travling.webp",
+        img:"travel.webp",
         visit:1000000,
         category:"travel"
     }
