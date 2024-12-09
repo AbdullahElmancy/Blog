@@ -1,3 +1,4 @@
+import { auth } from "@/app/auth";
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
 export const GET = async(req:{url:string})=>{
@@ -17,12 +18,19 @@ export const GET = async(req:{url:string})=>{
     }
 }
 
-export const Post = async(desc:string,postId:string,userEmail:string)=>{
-
+export const POST = async(req: { json: () => any; body: any; })=>{
+    const session = await auth()
+    if(!session){
+        return new NextResponse(JSON.stringify({message:"Not Allow To Add Comment"}),{status:401})
+        
+    }
     try {
+        
+        const body =await req.json()
+        
         const comment = await prisma.comment.create({
             data:{
-                desc,postId,userEmail
+                ...body,userEmail:session.user?.email
             }
         })
         return new NextResponse(JSON.stringify(comment),{status:200})

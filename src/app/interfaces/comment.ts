@@ -8,6 +8,7 @@ export interface Icomment{
       name:string;
       image:string
    }
- }]  
+ }] 
+ mutate:any
  isLoading:boolean
 }

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import { useSession } from 'next-auth/react';
 import { Icomment } from '@/app/interfaces/comment';
+import { useState } from 'react';
 const getComments  = async(url:string)=>{
     const res = await fetch(url)
     const data = await res.json()
@@ -14,18 +15,28 @@ const getComments  = async(url:string)=>{
     }
     return data
 }
+
+
 const Comments = ({postId}:{postId:string}) => {
+
     const status = useSession()
-    const {data,isLoading}:Icomment = useSWR(`http://localhost:3000/api/comments?postId=${postId}`,getComments)
-    console.log(typeof data);
-    console.log(status.status);
+    const {data,mutate,isLoading}:Icomment = useSWR(`http://localhost:3000/api/comments?postId=${postId}`,getComments)
+    const [desc,setDesc] = useState("")
     
+    const sendPost = async()=>{
+        
+        await fetch("/api/comments",{
+            method:"POST",
+            body:JSON.stringify({desc,postId}),
+        })
+        mutate()
+    }
     return ( <>
     <div className={style.Container}>
         <h1 className={style.title}>Comments</h1>
         {status.status === "authenticated" ?(<div className={style.write}>
-            <textarea placeholder='Write a comment' className={style.textarea}/>
-            <button className={style.button}>Send</button>
+            <textarea placeholder='Write a comment' className={style.textarea} onChange={ev=>setDesc(ev.target.value)}/>
+            <button className={style.button} onClick={sendPost}>Send</button>
         </div>):(<Link className={style.link} href={'/login'}>login to write comment</Link>)}
         <div className={style.comments}>
             {isLoading?"loading...":(data.map((item)=>{
