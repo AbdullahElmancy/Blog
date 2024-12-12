@@ -39,7 +39,7 @@ const Comments = ({postId}:{postId:string}) => {
             <button className={style.button} onClick={sendPost}>Send</button>
         </div>):(<Link className={style.link} href={'/login'}>login to write comment</Link>)}
         <div className={style.comments}>
-            {isLoading?"loading...":(data.map((item)=>{
+            {isLoading?"loading...":(!data ? " ": data.map((item)=>{
                 return (
                     <div className={style.comment} key={item.id}>
                     <div className={style.user}>
