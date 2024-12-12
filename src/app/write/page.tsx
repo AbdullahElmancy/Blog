@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
-import { Iresourse } from "../interfaces/reso";
 
 const WritePage = () => {
   const [desc, setDesc] = useState("");
