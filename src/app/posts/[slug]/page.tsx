@@ -14,7 +14,7 @@ const getDate = async(slug:string)=>{
     }
     return res.json()
 }
-const PostPage = async({params}:{params:{slug:string}}) => {
+const PostPage = async({params}:{params:Promise<any>}) => {
     const {slug} = await params
     const data:ISinglePost =await getDate(slug)
     console.log(data.img);
