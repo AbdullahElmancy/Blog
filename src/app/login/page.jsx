@@ -8,7 +8,7 @@ const LoginPage = () => {
     const router = useRouter()
     if (status === "loading") {
         return <div className={style.loading}>
-            <h1 className={style.titleLoding}>this page loadin</h1>
+            <h1 className={style.titleLoding}>this page loading</h1>
             <p className={style.ploadin}> please wait for loading</p>
         </div>
     }
