@@ -20,7 +20,7 @@ const getComments  = async(url:string)=>{
 const Comments = ({postId}:{postId:string}) => {
 
     const status = useSession()
-    const {data,mutate,isLoading}:Icomment = useSWR(`http://localhost:3000/api/comments?postId=${postId}`,getComments)
+    const {data,mutate,isLoading}:Icomment = useSWR(`${process.env.BASE_URL}/api/comments?postId=${postId}`,getComments)
     const [desc,setDesc] = useState("")
     
     const sendPost = async()=>{

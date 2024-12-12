@@ -5,7 +5,7 @@ import Card from '../card/Card'
 import { Iposts } from '@/app/interfaces/postsAr'
 
 const getDate = async(page:number,cat:string)=>{
-  const res = await fetch(`http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`)
+  const res = await fetch(`${process.env.BASE_URL}/api/posts?page=${page}&cat=${cat || ""}`)
   if(!res.ok){
     throw new Error("faild to get date")
   }
