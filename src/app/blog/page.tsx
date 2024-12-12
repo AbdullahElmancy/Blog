@@ -2,7 +2,7 @@ import style from './blog.module.css'
 import CardList from '../components/cardlist/CardList';
 import Menu from '../components/menu/Menu';
 
-const BlogPage = async({searchParams}:{searchParams:{page:string;cat:string}}) => {
+const BlogPage = async({searchParams}:{searchParams:Promise<any>}) => {
     const { page , cat} = await searchParams
     const pageh  =  parseInt(page) || 1
     return ( <>
