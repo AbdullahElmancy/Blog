@@ -96,7 +96,7 @@ model Category {
   slug String @unique
   title String
   img String?
-  Posts Post[]
+   Posts Post[]
 }
 model Post {
   id String @id @default(cuid()) @map("_id")
@@ -106,11 +106,10 @@ model Post {
   img String?
   views Int @default(0)
   createdAt DateTime @default(now())
-  catSlug String
-  cat Category @relation(fields: [catSlug],references: [slug])
   userEmail String
   user User @relation(fields: [userEmail],references: [email])
-
+  catSlug String
+  cat Category @relation(fields: [catSlug],references: [slug])
   Comment Comment[]
 }
 

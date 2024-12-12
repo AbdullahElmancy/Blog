@@ -18,6 +18,8 @@ const CardList = async({page,cat}:{page:number;cat:string}) => {
   const hasPerv = countPost * (page-1) >0;
   const hasNext = countPost * (page-1) + countPost < count ;
   
+  console.log(posts);
+  
 
   return (
     <div className={style.container}>

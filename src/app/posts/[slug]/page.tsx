@@ -13,7 +13,10 @@ const getDate = async(slug:string)=>{
 }
 const PostPage = async({params}:{params:{slug:string}}) => {
     const {slug} = await params
-    const data:ISinglePost =await getDate(slug)    
+    const data:ISinglePost =await getDate(slug)
+    console.log(data.img);
+    
+      
     return ( <>
     <div className={style.container}>
         <div className={style.infoContainer}>
@@ -31,9 +34,9 @@ const PostPage = async({params}:{params:{slug:string}}) => {
                     </div>
                 </div>
             </div>
-            <div className={style.imageContainer}>
-                <Image src={data.img} alt={`${data.slug} image`}  fill className={style.image} loading='lazy'/>
-            </div>
+{ data.img &&           <div className={style.imageContainer}>
+                <Image src={`${process.env.PRFIX_IMG}${data.img}`} alt={`${data.slug} image`}  fill className={style.image} loading='lazy'/>
+            </div>}
         </div>
         <div className={style.content}>
             <div className={style.post}>

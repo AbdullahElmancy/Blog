@@ -9,7 +9,7 @@ const MenuItem = (prop:{img:string;category:string}) => {
       <div className={style.items}>
         <Link href={`/`} className={style.item}>
         {prop.img !== "" ?         <div className={style.imageContainer}>
-        <Image sizes="" src={`/${prop.img}`} fill className={style.image} alt={`${prop.category}`}/>
+        <Image sizes="" src={`${process.env.PRFIX_IMG}${prop.img}`} fill className={style.image} alt={`${prop.category}`}/>
       </div>:""}
       <div className={style.textContainer}>
         <span className={`${style.category} ${prop.category}`}>{`${prop.category}`}</span>

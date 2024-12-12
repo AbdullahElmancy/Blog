@@ -8,7 +8,7 @@ const Card = (prop: { postDetails:{id:string;img:string;slug:string;createdAt:st
         <div className={style.container}>
             {prop.postDetails.img && (
                                 <div className={style.imgeContainer}>
-                                <Image sizes="" className={style.image} src={`${prop.postDetails.img}`} alt={`this ${prop.postDetails.slug}`} fill/>
+                                <Image sizes="" className={style.image} src={`${process.env.PRFIX_IMG}${prop.postDetails.img}`} alt={`this ${prop.postDetails.slug}`} fill/>
                                 </div>
             )
             }

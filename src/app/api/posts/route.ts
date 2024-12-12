@@ -1,3 +1,4 @@
+import {v2 as cloudinary} from 'cloudinary'
 import { auth } from "@/app/auth";
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
@@ -27,14 +28,18 @@ export const GET = async(req:{url:string})=>{
 }
 
 
+
 export const POST = async(req: { json: () => any; body: any; })=>{
+    
     const session = await auth()
     if(!session){
+        
         return new NextResponse(JSON.stringify({message:"Not Allow To Add Post"}),{status:401})
         
     }
-    try {
-        
+
+
+    try {        
         const body =await req.json()
         
         const post = await prisma.post.create({
@@ -44,7 +49,7 @@ export const POST = async(req: { json: () => any; body: any; })=>{
         })
         return new NextResponse(JSON.stringify(post),{status:200})
     } catch (error) {
-        
+
         return new NextResponse(JSON.stringify({message:"Somthing went wrong"}),{status:500})
     }
 }
