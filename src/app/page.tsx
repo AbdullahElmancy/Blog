@@ -5,7 +5,7 @@ import CardList from './components/cardlist/CardList';
 import Menu from './components/menu/Menu';
 
 
-const HOME = async({searchParams}:{searchParams:{page:string}}) => {
+const HOME = async({searchParams}:{searchParams:Promise<any>}) => {
   const { page } = await searchParams
   const pageh  =  parseInt(page) || 1
   return ( <>
