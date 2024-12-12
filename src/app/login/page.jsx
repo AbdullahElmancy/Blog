@@ -14,7 +14,7 @@ const LoginPage = () => {
     }
     
     if (status === "authenticated") {
-        router.push("/home")
+        router.push("/")
     }
     return ( <>
     <div className={style.container}>
