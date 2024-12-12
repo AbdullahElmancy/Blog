@@ -1,8 +1,8 @@
 import { prisma } from "@/app/prisma";
 import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
-export const GET = async (req: NextApiRequest) => {
-  const query = req.url?.split("/").at(-1);
+export const GET = async (req: Request) => {
+  const query =await req.url?.split("/").at(-1);
 
   try {
     const single = await prisma.post.findUnique({
