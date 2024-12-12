@@ -1,11 +1,11 @@
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
-export const GET = async(req: Request,{params}:{params:{slug:string}})=>{
-    const {slug} = await params  
+export const GET = async(req: Request)=>{
+    const body =await req.json()  
       
     try {
         const single = await prisma.post.findUnique({
-            where:{id:slug},
+            where:{id:body.slug},
             include:{user:true}
         })
         return new NextResponse(JSON.stringify(single),{status:200})

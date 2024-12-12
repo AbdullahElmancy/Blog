@@ -5,7 +5,10 @@ import Comments from '../../components/comments/Comments';
 import { ISinglePost } from '@/app/interfaces/postsAr';
 
 const getDate = async(slug:string)=>{
-    const res = await fetch(`http://localhost:3000/api/posts/${slug}`)
+    const res = await fetch(`http://localhost:3000/api/posts/${slug}`,{
+        method:"GET",
+        body:JSON.stringify({slug})
+    })
     if(!res.ok){
       throw new Error("faild to get date")
     }
