@@ -25,7 +25,7 @@ const Comments = ({postId}:{postId:string}) => {
     
     const sendPost = async()=>{
         
-        await fetch(`${process.env.BASE_URL}/api/comments`,{
+        await fetch(`https://blog-three-cyan-54.vercel.app/api/comments`,{
             method:"POST",
             body:JSON.stringify({desc,postId}),
         })
