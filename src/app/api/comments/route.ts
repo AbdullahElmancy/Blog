@@ -1,7 +1,7 @@
 import { auth } from "@/app/auth";
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
-export const GET = async(req:{url: string | URL})=>{
+export const GET = async(req:Request)=>{
     const {searchParams} = new URL(req.url)
     const postId = searchParams.get("postId")
     try {
