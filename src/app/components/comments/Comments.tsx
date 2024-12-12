@@ -25,7 +25,7 @@ const Comments = ({postId}:{postId:string}) => {
     
     const sendPost = async()=>{
         
-        await fetch("/api/comments",{
+        await fetch(`${process.env.BASE_URL}/api/comments`,{
             method:"POST",
             body:JSON.stringify({desc,postId}),
         })
