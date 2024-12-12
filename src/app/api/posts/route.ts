@@ -2,7 +2,7 @@ import {v2 as cloudinary} from 'cloudinary'
 import { auth } from "@/app/auth";
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
-export const GET = async(req:{url:string})=>{
+export const GET = async(req:Request)=>{
     const {searchParams} = new URL(req.url)
     const validatePage =  searchParams.get("page")
     const cat =  searchParams.get("cat")
@@ -29,7 +29,7 @@ export const GET = async(req:{url:string})=>{
 
 
 
-export const POST = async(req: { json: () => any; body: any; })=>{
+export const POST = async(req:Request)=>{
     
     const session = await auth()
     if(!session){

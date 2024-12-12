@@ -1,6 +1,6 @@
 import { prisma } from "@/app/prisma";
 import { NextResponse } from "next/server"
-export const GET = async(req: any,{params}:{params:{slug:string}})=>{
+export const GET = async(req: Request,{params}:{params:{slug:string}})=>{
     const {slug} = await params  
       
     try {

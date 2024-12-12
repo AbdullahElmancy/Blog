@@ -18,7 +18,7 @@ export const GET = async(req:Request)=>{
     }
 }
 
-export const POST = async(req: { json: () => any; body: any; })=>{
+export const POST = async(req:Request)=>{
     const session = await auth()
     if(!session){
         return new NextResponse(JSON.stringify({message:"Not Allow To Add Comment"}),{status:401})
