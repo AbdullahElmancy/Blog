@@ -14,7 +14,8 @@ export const GET = async(req:Request)=>{
             prisma.post.findMany({
                 take:postpage,
                 skip:postpage * (page - 1),
-                where:{...(cat && {catSlug:cat}),}
+                where:{...(cat && {catSlug:cat}),},
+                include: { user: true },
             }),
             prisma.post.count({
                 where:{...(cat && {catSlug:cat}),}
