@@ -7,3 +7,9 @@
     justify-content: center;
     align-content: center;
 }
+
+.title{
+    font-size: 72px;
+    text-transform: capitalize;
+    color: red;
+}

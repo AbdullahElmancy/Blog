@@ -33,7 +33,23 @@
 .LinkNot:hover{
   background-color:rgb(108, 17, 17);
 }
-
+.buttonError{
+  margin-top: 20px;
+  padding: 16px 20px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border:none;
+  font-size: 20px;
+  font-weight: bold;
+}
+.buttonError:hover{
+  background-color:crimson;
+}
 @media screen and (max-width:768px) {
   .notFoundTitle{
     font-size: 48px;
