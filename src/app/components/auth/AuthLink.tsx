@@ -30,7 +30,7 @@ const AuthLink = () => {
         <div className={style.menu}>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href="/contat">Contact</Link>
+          <Link href="/contact">Contact</Link>
           {status === "unauthenticated" ? (
             <Link href="/login">
               Login

@@ -14,16 +14,13 @@
 }
 .containerImage{
     flex: 1;
-    height: 500px;
+    height: 400px;
     position: relative;
 }
 .image{
-    object-fit: cover;
+    object-fit:cover;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    -webkit-border-radius:10px;
 }
 
 .containertext{
@@ -43,16 +40,6 @@ gap: 20px;
     color: var(--softTextColor);
 }
 
-.button {
-    width: max-content;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
 
 
 @media screen and (max-width:1280px) {
