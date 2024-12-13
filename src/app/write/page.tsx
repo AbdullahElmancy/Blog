@@ -15,8 +15,7 @@ const WritePage = () => {
   const { status } = useSession();
   //can not complete
   const [resource, setResource] = useState<string | CloudinaryUploadWidgetInfo | undefined>();
-  
-  const [file, setFile] = useState<File | undefined | null>(null);
+
   const router = useRouter();
 
   const sendPost = async () => {
@@ -39,8 +38,7 @@ const WritePage = () => {
   if (status === "loading") {
     return (
       <div className={style.loading}>
-        <h1 className={style.titleLoding}>this page loadin</h1>
-        <p className={style.ploadin}> please wait for loading</p>
+        <h1 className={style.titleLoding}>this page loading</h1>
       </div>
     );
   }

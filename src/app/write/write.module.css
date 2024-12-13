@@ -1,7 +1,6 @@
 .editor{
     display: flex;
-    gap: 20;
-    height: 500px;
+    flex-direction: column;
     position: relative;
 }
 
@@ -47,10 +46,11 @@
     border:none;
     outline: none;
     color: var(--textColor);
+    height: 30vh;
 }
 
 .title{
-    padding: 50px;
+    margin: 50px 0px 50px 0px;
     font-size: 64px;
     width: 100%;
     overflow: hidden;
@@ -75,13 +75,11 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    margin-top: 20px;
 }
 
 .select{
     margin-bottom: 50px;
     padding: 1em 0 1em 1em;
-    margin-left: 50px;
     width: max-content;
     appearance: none;
     text-indent: 0.01px;
@@ -104,4 +102,18 @@
     outline: 0;
     background-color: rgba(20, 133, 20, 0.87);
 
+}
+
+.loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: calc(100vh - 90px);
+}
+.titleLoding{
+    font-size: 72px;
+    color: red;
 }
