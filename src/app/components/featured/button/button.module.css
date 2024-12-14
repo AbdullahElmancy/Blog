@@ -9,4 +9,10 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     cursor: pointer;
+    background-color:red;
+    color: white;
+}
+
+.button:hover{
+    background-color:crimson;
 }
