@@ -20,7 +20,7 @@ const CatagoryList = async() => {
         {data.map((item)=>{
           return <div key={item.id} className={`${style.category} ${style[item.slug]}`}>
                     <Link key={item.id} className={style.link} href={`/blog?cat=${item.slug}`} >
-                    <Image  key={item.id}  src={`../../../../public/${item.slug}.webP`} alt={`${item.slug} category`} width={32} height={32} className={style.image}/>{item.title}</Link>
+                    <Image  key={item.id}  src={`/${item.slug}.webp`} alt={`${item.slug} category`} width={32} height={32} className={style.image}/>{item.title}</Link>
           </div>
         })}
         </div>
