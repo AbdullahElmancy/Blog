@@ -5,10 +5,12 @@ import Comments from "../../components/comments/Comments";
 import { ISinglePost } from "@/app/interfaces/postsAr";
 
 const getDate = async (slug: string) => {
+  console.log(slug);
+  
   const res = await fetch(`${process.env.BASE_URL}/api/posts/${slug}`);
-  if (!res.ok) {
-    throw new Error("faild to get date");
-  }
+  // if (!res.ok) {
+  //   throw new Error("faild to get date");
+  // }
   return res.json();
 };
 const PostPage = async ({ params }: { params: Promise<any> }) => {

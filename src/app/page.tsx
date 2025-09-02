@@ -11,11 +11,11 @@ const HOME = async({searchParams}:{searchParams:Promise<any>}) => {
   return ( <>
   <div className={style.container}>
   <Featured/>
-  <CatagoryList/>
+  {/* <CatagoryList/>
   <div className={style.content}>
     <CardList page={pageh} cat={""}/>
     <Menu />
-  </div>
+  </div> */}
   </div>
 
   </> );

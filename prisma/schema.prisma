@@ -14,7 +14,7 @@ datasource db {
 }
 
 model User {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id @map("_id") @db.ObjectId
   name          String?
   email         String          @unique
   emailVerified DateTime?
@@ -24,8 +24,8 @@ model User {
   // Optional for WebAuthn support
   Authenticator Authenticator[]
  
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
 
   Post Post[]
 
@@ -33,7 +33,7 @@ model User {
 }
  
 model Account {
-  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  id                String   @id @map("_id") @db.ObjectId
   userId            String  @db.ObjectId
   type              String
   provider          String
@@ -55,7 +55,7 @@ model Account {
 }
  
 model Session {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id @map("_id") @db.ObjectId
   sessionToken String   @unique
   userId       String   @db.ObjectId
   expires      DateTime
@@ -66,7 +66,7 @@ model Session {
 }
  
 model VerificationToken {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @map("_id") @db.ObjectId
   identifier String
   token      String
   expires    DateTime
@@ -92,20 +92,20 @@ model Authenticator {
 
 
 model Category {
-  id String @id @default(cuid()) @map("_id")
+  id String   @id @map("_id") @db.ObjectId
   slug String @unique
   title String
   img String?
    Posts Post[]
 }
 model Post {
-  id String @id @default(cuid()) @map("_id")
+  id String   @id @map("_id") @db.ObjectId
   slug String  
   title String
   desc String
   img String?
   views Int @default(0)
-  createdAt DateTime @default(now())
+  createdAt DateTime? @default(now())
   userEmail String
   user User @relation(fields: [userEmail],references: [email])
   catSlug String
@@ -114,7 +114,7 @@ model Post {
 }
 
 model Comment {
-  id String @id @default(cuid()) @map("_id")
+  id String   @id @map("_id") @db.ObjectId
   desc String
   createdAt DateTime @default(now())
   userEmail String

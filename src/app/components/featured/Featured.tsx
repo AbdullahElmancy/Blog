@@ -2,6 +2,7 @@ import Image from 'next/image'
 import style from './featured.module.css'
 import ButtonFeatured from './button/buttonFeatured';
 const getDate = async(slug:string)=>{
+
   const res = await fetch(`${process.env.BASE_URL}/api/posts/${slug}`)
   if(!res.ok){
     throw new Error("faild to get date")
@@ -9,7 +10,7 @@ const getDate = async(slug:string)=>{
   return res.json()
 }
 const Featured = async() => {
-  const slug = "cm4mms0u00003vfi01talr7ti"
+  const slug = "68b6d24b28d1cba593129aae"
   const datePost = await getDate(slug)
   
   return (
