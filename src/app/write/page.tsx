@@ -23,12 +23,12 @@ const WritePage = () => {
     if (typeof resource !== "object") {
         await fetch("/api/posts", {
             method: "POST",
-            body: JSON.stringify({ desc, title,slug:catSlug || "travel",catSlug:catSlug || "travel"}),
+            body: JSON.stringify({ desc, title,slug:catSlug ?? "travel" ,catSlug:catSlug ?? "travel"}),
           });
       } else if (resource && typeof resource === 'object') {
         await fetch("/api/posts", {
             method: "POST",
-            body: JSON.stringify({ desc, title ,img:resource.secure_url.split("/").at(-1),slug:catSlug || "travel",catSlug:catSlug || "travel"}),
+            body: JSON.stringify({ desc, title ,img:resource.secure_url.split("/").at(-1),slug:catSlug ?? "travel",catSlug:catSlug ?? "travel"}),
           });
       }
       router.push("/")
@@ -60,7 +60,7 @@ const WritePage = () => {
         <option value="style">style</option>
         <option value="fashion">fashion</option>
         <option value="food">food</option>
-        <option value="culture">culture</option>
+        <option value="cultural">culture</option>
         <option value="travel">travel</option>
         <option value="coding">coding</option>
       </select>

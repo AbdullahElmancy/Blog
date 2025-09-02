@@ -14,13 +14,13 @@ const Card = (prop: { postDetails:{id:string;img:string;slug:string;createdAt:st
             }
                 <div className={style.textContainer}>
                     <div className={style.detail}>
-                        <span className={style.date}>{prop.postDetails.createdAt.slice(0,10)} - </span>
+                        <span className={style.date}>{prop?.postDetails?.createdAt?.slice(0,10) ?? " - "} - </span>
                         <span className={style.category}>{prop.postDetails.slug}</span>
                     </div>
                     <Link href={`/posts/${prop.postDetails.id}`}>
                     <h1>{prop.postDetails.title}</h1>
                     </Link>
-                    <p className={style.desc}>{prop.postDetails.desc}</p>
+                    <p className={style.desc}>{prop?.postDetails?.desc?.slice(0,100)}</p>
                     <Link className={style.link} href={`/posts/${prop.postDetails.id}`}>Read ME</Link>
                 </div>
         </div>

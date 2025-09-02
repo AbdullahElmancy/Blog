@@ -18,14 +18,13 @@ const getComments  = async(url:string)=>{
 
 
 const Comments = ({postId}:{postId:string}) => {
-
     const status = useSession()
-    const {data,mutate,isLoading}:Icomment = useSWR(`https://blog-three-cyan-54.vercel.app/api/comments?postId=${postId}`,getComments)
+    const {data,mutate,isLoading}:Icomment = useSWR(`/api/comments?postId=${postId}`,getComments)
     const [desc,setDesc] = useState("")
     const textAr = useRef(null)
     const sendPost = async()=>{
         
-        await fetch(`https://blog-three-cyan-54.vercel.app/api/comments`,{
+        await fetch(`/api/comments`,{
             method:"POST",
             body:JSON.stringify({desc,postId}),
         })

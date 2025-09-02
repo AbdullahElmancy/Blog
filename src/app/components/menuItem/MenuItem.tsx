@@ -18,7 +18,7 @@ const MenuItem = (prop:{img:string;category:string,ids:string,title:string,creat
           <span className={style.userName}>
             {prop.userName}
           </span>
-          <span className={style.date}> - {prop.creatAt.slice(0,10)}</span>
+          <span className={style.date}> - {prop?.creatAt?.slice(0,10)?? " - "}</span>
         </div>
       </div>
         </Link>

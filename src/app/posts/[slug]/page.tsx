@@ -5,12 +5,11 @@ import Comments from "../../components/comments/Comments";
 import { ISinglePost } from "@/app/interfaces/postsAr";
 
 const getDate = async (slug: string) => {
-  console.log(slug);
   
   const res = await fetch(`${process.env.BASE_URL}/api/posts/${slug}`);
-  // if (!res.ok) {
-  //   throw new Error("faild to get date");
-  // }
+  if (!res.ok) {
+    throw new Error("faild to get date");
+  }
   return res.json();
 };
 const PostPage = async ({ params }: { params: Promise<any> }) => {
@@ -39,7 +38,7 @@ const PostPage = async ({ params }: { params: Promise<any> }) => {
               <div className={style.userTextContainer}>
                 <span className={style.userName}>{data.user.name}</span>
                 <span className={style.userDate}>
-                  {data.createdAt.slice(0, 10)}
+                  {data?.createdAt?.slice(0, 10) ?? " -"}
                 </span>
               </div>
             </div>

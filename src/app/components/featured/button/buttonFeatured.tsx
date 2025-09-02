@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 function ButtonFeatured() {
 const router = useRouter()
   return (
-    <button className={style.button} onClick={()=>router.push("/posts/cm4mms0u00003vfi01talr7ti")}>Read More</button>
+    <button className={style.button} onClick={()=>router.push("/posts/cmf2oy7jt000bvfiw8inbyz7f")}>Read More</button>
 )
 }
 

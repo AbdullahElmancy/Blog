@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import style from './featured.module.css'
 import ButtonFeatured from './button/buttonFeatured';
+import { Suspense } from 'react';
 const getDate = async(slug:string)=>{
 
   const res = await fetch(`${process.env.BASE_URL}/api/posts/${slug}`)
@@ -10,7 +11,7 @@ const getDate = async(slug:string)=>{
   return res.json()
 }
 const Featured = async() => {
-  const slug = "68b6d24b28d1cba593129aae"
+  const slug = "cmf2oy7jt000bvfiw8inbyz7f"
   const datePost = await getDate(slug)
   
   return (
@@ -20,11 +21,13 @@ const Featured = async() => {
         </h1>
       <div className={style.post}>
       <div className={style.containerImage}>
-            <Image sizes='' className={style.image} loading='lazy' src={`${process.env.PRFIX_IMG}${datePost.img}`}alt='photofrom winter' fill />
+        <Suspense fallback={<div className={style.load}><h1>Wait Untill Loading...</h1></div>}>
+              <Image sizes='' className={style.image} loading='lazy' src={`${process.env.PRFIX_IMG}${datePost.img}`}alt='photofrom winter' fill />
+        </Suspense>
         </div>
         <div className={style.containertext}>
             <h2 className={style.postTitle}>{datePost.title}</h2>
-            <p className={style.postDesc}>{datePost.desc}</p>
+            <p className={style.postDesc}>{datePost.desc.slice(0,100)}...</p>
             <ButtonFeatured/>
         </div>
       </div>
